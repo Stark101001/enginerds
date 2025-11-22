@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import {
   Award,
@@ -14,6 +13,7 @@ import {
   Bot
 } from 'lucide-react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const serviceHighlights = [
   {
@@ -73,15 +73,46 @@ const aiCapabilities = [
 const About = () => {
   useScrollAnimation();
 
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Enginerds',
+    url: 'https://www.enginerds.in',
+    logo: 'https://www.enginerds.in/logo.svg',
+    description: 'Multidisciplinary studio delivering bespoke software, managed IT, and AI-led innovation for ambitious brands.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Ludhiana',
+      addressRegion: 'Punjab',
+      postalCode: '141010',
+      addressCountry: 'IN'
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+91-8567927943',
+      contactType: 'sales',
+      email: 'info@enginerds.in',
+      areaServed: 'IN'
+    },
+    sameAs: [
+      'https://www.linkedin.com/in/enginerds/',
+      'https://www.facebook.com/enginerds',
+      'https://www.instagram.com/enginerds.in'
+    ]
+  };
+
   return (
     <div className="pt-28 pb-24 bg-space-950 text-white min-h-screen smoky-overlay">
-      <Helmet>
-        <title>About Enginerds | Builders of Perpetually Adaptive Enterprises</title>
-        <meta
-          name="description"
-          content="Learn about Enginerds, the multidisciplinary studio delivering bespoke software, managed IT, and AI-led innovation for ambitious brands."
-        />
-      </Helmet>
+      <SEO
+        title="About Enginerds | Builders of Perpetually Adaptive Enterprises"
+        description="Learn about Enginerds, the multidisciplinary studio delivering bespoke software, managed IT, and AI-led innovation for ambitious brands. 8+ years of digital-first product development."
+        keywords="about enginerds, software development company, AI innovation, managed IT services, digital transformation, product engineering"
+        canonical="/about"
+        ogTitle="About Enginerds | Building Adaptive Digital Solutions"
+        ogDescription="Multidisciplinary team of engineers, designers, and strategists helping brands launch digital experiences that stay ahead of change."
+        ogImage="https://www.enginerds.in/og-about.jpg"
+        structuredData={structuredData}
+      />
 
       <section className="max-w-[1200px] xl:max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr),minmax(0,0.9fr)] items-start">

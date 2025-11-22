@@ -1,7 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { ArrowRight, ShieldCheck, Server, Layers, Mail, Cloud, Workflow, Network } from 'lucide-react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const serviceItems = [
   {
@@ -62,16 +62,35 @@ const reasons = [
 const ITConsulting = () => {
   useScrollAnimation();
 
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'IT Consulting Services',
+    provider: {
+      '@type': 'Organization',
+      name: 'Enginerds',
+      url: 'https://www.enginerds.in'
+    },
+    description: 'Smart IT consulting for secure, scalable, and high-performance infrastructure covering networks, servers, hosting, email, and cloud solutions.',
+    areaServed: 'IN',
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      serviceUrl: 'https://www.enginerds.in/consulting'
+    }
+  };
+
   return (
     <div className="pt-24 bg-space-950 text-white">
-      <Helmet>
-        <title>IT Consulting Services | Enginerds</title>
-        <meta
-          name="description"
-          content="Smart IT consulting for secure, scalable, and high-performance infrastructure covering networks, servers, hosting, email, and cloud solutions."
-        />
-        <link rel="canonical" href="https://www.enginerds.in/consulting" />
-      </Helmet>
+      <SEO
+        title="IT Consulting Services | Infrastructure & Cloud Solutions | Enginerds"
+        description="Smart IT consulting for secure, scalable, and high-performance infrastructure covering networks, servers, hosting, email, and cloud solutions. Expert guidance for modern business growth."
+        keywords="IT consulting, infrastructure management, cloud hosting, network services, server setup, IT support, managed services, cybersecurity"
+        canonical="/consulting"
+        ogTitle="IT Consulting Services | Expert Infrastructure Solutions"
+        ogDescription="Build secure, scalable, and high-performance IT foundations with expert guidance across networks, servers, hosting, and cloud technology."
+        ogImage="https://www.enginerds.in/og-consulting.jpg"
+        structuredData={structuredData}
+      />
 
       <section className="relative overflow-hidden pt-32 pb-24 lg:pt-40 lg:pb-32 px-4 sm:px-6 lg:px-10">
         <div className="absolute inset-0">

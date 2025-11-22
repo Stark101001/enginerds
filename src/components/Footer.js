@@ -1,10 +1,21 @@
 import React from 'react';
 import logo from '../assets/logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
+
+  const scrollToSection = (sectionId) => {
+    navigate('/');
+    setTimeout(() => {
+      const element = document.querySelector(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  };
 
   return (
     <footer className="bg-space-950 text-white cyber-grid-bg border-t border-primary-500/20">
@@ -56,24 +67,36 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="#services" className="text-sm hover:text-primary-500 transition-colors">
+                <button
+                  onClick={() => scrollToSection('#services')}
+                  className="text-sm hover:text-primary-500 transition-colors text-left"
+                >
                   Services
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#portfolio" className="text-sm hover:text-primary-500 transition-colors">
+                <button
+                  onClick={() => scrollToSection('#portfolio')}
+                  className="text-sm hover:text-primary-500 transition-colors text-left"
+                >
                   Portfolio
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#process" className="text-sm hover:text-primary-500 transition-colors">
+                <button
+                  onClick={() => scrollToSection('#process')}
+                  className="text-sm hover:text-primary-500 transition-colors text-left"
+                >
                   Our Process
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#contact" className="text-sm hover:text-primary-500 transition-colors">
+                <button
+                  onClick={() => scrollToSection('#contact')}
+                  className="text-sm hover:text-primary-500 transition-colors text-left"
+                >
                   Contact
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -83,29 +106,29 @@ const Footer = () => {
             <h3 className="text-white font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#case-studies" className="hover:text-primary-500 transition-colors">
+                <Link to="/services/development" className="hover:text-primary-500 transition-colors">
                   Web Development
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#case-studies" className="hover:text-primary-500 transition-colors">
+                <Link to="/services/development" className="hover:text-primary-500 transition-colors">
                   Mobile Apps
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#case-studies" className="hover:text-primary-500 transition-colors">
+                <Link to="/services/saas-solutions" className="hover:text-primary-500 transition-colors">
                   Cloud Solutions
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#case-studies" className="hover:text-primary-500 transition-colors">
+                <Link to="/services/development" className="hover:text-primary-500 transition-colors">
                   UI/UX Design
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#case-studies" className="hover:text-primary-500 transition-colors">
+                <Link to="/consulting" className="hover:text-primary-500 transition-colors">
                   IT Consulting
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

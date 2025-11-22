@@ -1,9 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Code2, Smartphone, Cloud, Database, Zap, Shield } from 'lucide-react';
 import ServiceHero from '../../components/ServiceHero';
 import ServiceFeatures from '../../components/ServiceFeatures';
 import useScrollAnimation from '../../hooks/useScrollAnimation';
+import SEO from '../../components/SEO';
 
 const Development = () => {
     useScrollAnimation();
@@ -50,20 +50,30 @@ const Development = () => {
         { category: 'Tools', items: ['Git', 'Jenkins', 'Jira', 'Figma', 'Postman'] }
     ];
 
+    const structuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        serviceType: 'Web & Mobile Development',
+        provider: {
+            '@type': 'Organization',
+            name: 'Enginerds'
+        },
+        description: 'Expert web and mobile development services. Custom applications built with React, Node.js, React Native, and modern cloud technologies.',
+        areaServed: 'IN'
+    };
+
     return (
         <div className="pt-20">
-            <Helmet>
-                <title>Web & Mobile Development Services | Enginerds</title>
-                <meta
-                    name="description"
-                    content="Expert web and mobile development services. Custom applications built with React, Node.js, React Native, and modern cloud technologies."
-                />
-                <meta
-                    name="keywords"
-                    content="web development, mobile development, React development, Node.js, mobile apps, custom software"
-                />
-                <link rel="canonical" href="https://www.enginerds.in/services/development" />
-            </Helmet>
+            <SEO
+                title="Web & Mobile Development Services | React, Node.js, Flutter | Enginerds"
+                description="Expert web and mobile development services. Custom applications built with React, Node.js, React Native, and modern cloud technologies. Transform your ideas into powerful digital solutions."
+                keywords="web development, mobile development, React development, Node.js, mobile apps, custom software, Flutter, cloud solutions"
+                canonical="/services/development"
+                ogTitle="Web & Mobile Development | Build Powerful Digital Solutions"
+                ogDescription="Transform your ideas into powerful web and mobile applications with modern frameworks and cloud technologies."
+                ogImage="https://www.enginerds.in/og-development.jpg"
+                structuredData={structuredData}
+            />
 
             <ServiceHero
                 title="Web & Mobile Development"

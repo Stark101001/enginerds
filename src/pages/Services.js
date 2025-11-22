@@ -1,11 +1,22 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Code2, ShoppingCart, Cloud, Bot, Headphones } from 'lucide-react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const Services = () => {
     useScrollAnimation();
+    const navigate = useNavigate();
+
+    const scrollToContact = () => {
+        navigate('/');
+        setTimeout(() => {
+            const element = document.querySelector('#contact');
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 100);
+    };
 
     const services = [
         {
@@ -51,34 +62,50 @@ const Services = () => {
         }
     ];
 
+    const structuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        itemListElement: services.map((service, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+                '@type': 'Service',
+                name: service.title,
+                description: service.description,
+                provider: {
+                    '@type': 'Organization',
+                    name: 'Enginerds'
+                }
+            }
+        }))
+    };
+
     return (
         <div className="pt-20">
-            <Helmet>
-                <title>Our Services | Software Development & IT Solutions | Enginerds</title>
-                <meta
-                    name="description"
-                    content="Comprehensive IT services including web development, e-commerce, SaaS solutions, AI automation, and 24/7 IT support."
-                />
-                <meta
-                    name="keywords"
-                    content="IT services, software development, web development, ecommerce, SaaS, AI automation, IT support"
-                />
-                <link rel="canonical" href="https://www.enginerds.in/services" />
-            </Helmet>
+            <SEO
+                title="Our Services | Software Development & IT Solutions | Enginerds"
+                description="Comprehensive IT services including web development, e-commerce, SaaS solutions, AI automation, and 24/7 IT support. Transform your business with cutting-edge technology solutions."
+                keywords="IT services, software development, web development, ecommerce, SaaS, AI automation, IT support, managed services"
+                canonical="/services"
+                ogTitle="Comprehensive IT Solutions | Enginerds"
+                ogDescription="From custom software development to 24/7 IT support, we deliver end-to-end technology solutions that drive business growth."
+                ogImage="https://www.enginerds.in/og-services.jpg"
+                structuredData={structuredData}
+            />
 
             {/* Hero Section */}
-            <section className="relative overflow-hidden pt-32 pb-24 lg:pt-40 lg:pb-32 bg-gradient-to-br from-space-950 via-space-900 to-space-950 smoky-overlay">
+            <section className="relative overflow-hidden pt-24 pb-20 sm:pt-28 sm:pb-24 lg:pt-40 lg:pb-32 bg-gradient-to-br from-space-950 via-space-900 to-space-950 smoky-overlay">
                 <div className="absolute inset-0 bg-black/65 mix-blend-multiply"></div>
                 <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.15),_transparent_45%),_radial-gradient(circle_at_bottom_right,_rgba(249,115,22,0.2),_transparent_55%)]"></div>
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary-500/10 text-primary-500 border border-primary-500/30 shadow-glow-md mb-6">
+                    <div className="inline-flex items-center px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-primary-500/10 text-primary-500 border border-primary-500/30 shadow-glow-md mb-6">
                         <span className="w-2 h-2 bg-neon-cyan rounded-full mr-2 animate-pulse"></span>
                         Our Services
                     </div>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-glow-white leading-tight mb-6">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-glow-white leading-tight mb-4 sm:mb-6">
                         Comprehensive IT Solutions
                     </h1>
-                    <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
+                    <p className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
                         From custom software development to 24/7 IT support, we deliver end-to-end technology solutions that drive business growth and digital transformation.
                     </p>
                 </div>
@@ -152,25 +179,25 @@ const Services = () => {
             {/* CTA Section */}
             <section className="py-20 bg-space-900 cyber-grid-bg">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-animate">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white text-glow-white mb-6">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-white text-glow-white mb-6">
                         Ready to Transform Your Business?
                     </h2>
-                    <p className="text-lg text-gray-300 mb-8">
+                    <p className="text-base sm:text-lg text-gray-300 mb-8">
                         Let's discuss how our services can help you achieve your goals. Get in touch with our team today.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a
-                            href="/#contact"
-                            className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-primary-500 text-gray-900 font-semibold shadow-glow-md transition-all duration-200 hover:bg-primary-400"
+                        <button
+                            onClick={scrollToContact}
+                            className="inline-flex items-center justify-center w-full sm:w-auto px-7 py-3 sm:px-8 sm:py-4 rounded-full bg-primary-500 text-gray-900 font-semibold shadow-glow-md transition-all duration-200 hover:bg-primary-400"
                         >
                             Get Started
                             <ArrowRight className="ml-2 h-5 w-5" />
-                        </a>
+                        </button>
                         <a
                             href="https://wa.me/918567927943"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-green-500 text-green-400 font-semibold transition-all duration-200 hover:bg-green-500/10 hover:shadow-glow-md"
+                            className="inline-flex items-center justify-center w-full sm:w-auto px-7 py-3 sm:px-8 sm:py-4 rounded-full border-2 border-green-500 text-green-400 font-semibold transition-all duration-200 hover:bg-green-500/10 hover:shadow-glow-md"
                         >
                             WhatsApp Us
                             <ArrowRight className="ml-2 h-5 w-5" />

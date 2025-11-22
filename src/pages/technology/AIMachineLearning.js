@@ -1,7 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { BrainCircuit, Sparkles, Database, ShieldCheck, ArrowRight, Workflow, Cpu } from 'lucide-react';
 import useScrollAnimation from '../../hooks/useScrollAnimation';
+import SEO from '../../components/SEO';
 
 const capabilityTiles = [
   {
@@ -31,16 +31,29 @@ const programHighlights = [
 const AIMachineLearning = () => {
   useScrollAnimation();
 
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'AI & Machine Learning Services',
+    description: 'Strategy, MLOps, and bespoke AI solutions to launch copilots, predictive models, and intelligent products with confidence.',
+    author: {
+      '@type': 'Organization',
+      name: 'Enginerds'
+    }
+  };
+
   return (
     <div className="pt-20 bg-space-950 text-white smoky-overlay">
-      <Helmet>
-        <title>AI & Machine Learning Services | Enginerds</title>
-        <meta
-          name="description"
-          content="Strategy, MLOps, and bespoke AI solutions to launch copilots, predictive models, and intelligent products with confidence."
-        />
-        <link rel="canonical" href="https://www.enginerds.in/technology/ai-ml" />
-      </Helmet>
+      <SEO
+        title="AI & Machine Learning Services | MLOps & AI Solutions | Enginerds"
+        description="Strategy, MLOps, and bespoke AI solutions to launch copilots, predictive models, and intelligent products with confidence. Fine-tuned LLMs, responsible AI, and modern ML pipelines."
+        keywords="AI services, machine learning, MLOps, AI strategy, LLM, generative AI, predictive models, responsible AI"
+        canonical="/technology/ai-ml"
+        ogTitle="AI & Machine Learning | Launch Intelligent Systems"
+        ogDescription="Research-driven experimentation with battle-tested engineering to design and deploy AI solutions that solve real business problems."
+        ogImage="https://www.enginerds.in/og-ai-ml.jpg"
+        structuredData={structuredData}
+      />
 
       <section className="relative overflow-hidden py-24">
         <img

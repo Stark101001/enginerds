@@ -312,14 +312,14 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-[999] transition-all duration-300 ${isHidden ? '-translate-y-full' : 'translate-y-0'} ${scrolled || isOpen || servicesOpen || whoWeAreOpen ? 'bg-space-950/80 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
+      className={`fixed top-0 w-full z-[999] transition-all duration-300 ${isHidden ? '-translate-y-full' : 'translate-y-0'} ${scrolled || isOpen || servicesOpen || whoWeAreOpen ? 'bg-space-950/85 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
         }`}
     >
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-18 sm:h-20 py-3 sm:py-0">
           {/* Logo */}
           <Link to="/" onClick={handleHomeClick} className="flex items-center space-x-3">
-            <img src={logo} alt="EngiNerds" className="h-14 w-auto" />
+            <img src={logo} alt="EngiNerds" className="h-12 sm:h-14 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -369,7 +369,7 @@ const Navbar = () => {
                   role="menu"
                   aria-labelledby="who-we-are-trigger"
                   onMouseLeave={() => setWhoWeAreOpen(false)}
-                  className="absolute left-0 top-full mt-4 w-[720px] rounded-3xl border border-slate-200 bg-white shadow-[0_32px_80px_-40px_rgba(15,23,42,0.18)] p-8"
+                  className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[720px] rounded-3xl border border-slate-200 bg-white shadow-[0_32px_80px_-40px_rgba(15,23,42,0.18)] p-8"
                 >
                   <div className="grid gap-8 md:grid-cols-[minmax(0,0.55fr),minmax(0,0.45fr)] text-slate-700">
                     <div className="space-y-6">
@@ -480,7 +480,7 @@ const Navbar = () => {
                   role="menu"
                   aria-labelledby="mega-menu-trigger"
                   onMouseLeave={() => setServicesOpen(false)}
-                  className="absolute left-0 top-full mt-4 w-[880px] rounded-3xl border border-slate-200 bg-white shadow-[0_32px_80px_-40px_rgba(15,23,42,0.18)] p-8"
+                  className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[880px] rounded-3xl border border-slate-200 bg-white shadow-[0_32px_80px_-40px_rgba(15,23,42,0.18)] p-8"
                 >
                   <div className="flex flex-col gap-6 text-slate-700">
                     <div className="flex items-center justify-between">
@@ -592,7 +592,8 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg text-white hover:bg-white/10"
+            className="lg:hidden p-3 rounded-lg text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -602,15 +603,15 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="lg:hidden glass-dark border-t border-white/10">
-          <div className="px-4 py-4 space-y-3">
-            <Link to="/" onClick={handleHomeClick} className="block px-4 py-2 rounded-lg text-sm font-medium text-white hover:bg-primary-500/10 hover:text-primary-500">
+          <div className="px-4 py-5 space-y-3">
+            <Link to="/" onClick={handleHomeClick} className="block px-4 py-3 rounded-lg text-base font-medium text-white hover:bg-primary-500/10 hover:text-primary-500">
               Home
             </Link>
             <div>
               <button
                 type="button"
                 onClick={() => setMobileWhoWeAreOpen(!mobileWhoWeAreOpen)}
-                className="inline-flex items-center justify-between w-full px-4 py-2 rounded-lg text-sm font-medium text-white hover:bg-primary-500/10"
+                className="inline-flex items-center justify-between w-full px-4 py-3 rounded-lg text-base font-medium text-white hover:bg-primary-500/10"
               >
                 <span>Who We Are</span>
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileWhoWeAreOpen ? 'rotate-180' : ''}`} />
@@ -620,7 +621,7 @@ const Navbar = () => {
                   <Link
                     to="/about"
                     onClick={() => setIsOpen(false)}
-                    className={`block px-4 py-2 rounded-lg text-sm ${location.pathname === '/about'
+                    className={`block px-3 py-2 rounded-lg text-sm ${location.pathname === '/about'
                       ? 'bg-primary-500/20 text-primary-400'
                       : 'text-white hover:bg-primary-500/10 hover:text-primary-400'
                       }`}
@@ -636,20 +637,20 @@ const Navbar = () => {
               <button
                 type="button"
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-primary-500 text-gray-900 font-semibold transition-all duration-200 hover:bg-primary-400 hover:shadow-glow-md"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary-500 text-gray-900 font-semibold transition-all duration-200 hover:bg-primary-400 hover:shadow-glow-md"
               >
                 What we do
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
               </button>
               {mobileServicesOpen && (
-                <div className="px-4">
+                <div className="px-2">
                   <div className="space-y-2">
                     {serviceLinks.map((service) => (
                       <Link
                         key={service.path}
                         to={service.path}
                         onClick={() => setIsOpen(false)}
-                        className={`block px-4 py-2 rounded-lg text-sm ${location.pathname === service.path
+                        className={`block px-4 py-3 rounded-lg text-base ${location.pathname === service.path
                           ? 'bg-neon-cyan/20 text-neon-cyan font-medium'
                           : 'text-white hover:bg-neon-cyan/10 hover:text-neon-cyan'
                           }`}
@@ -663,7 +664,7 @@ const Navbar = () => {
                     <Link
                       to="/portfolio"
                       onClick={() => setIsOpen(false)}
-                      className={`block px-4 py-2 rounded-lg text-sm ${location.pathname === '/portfolio'
+                      className={`block px-4 py-3 rounded-lg text-base ${location.pathname === '/portfolio'
                         ? 'bg-neon-cyan/20 text-neon-cyan font-medium'
                         : 'text-white hover:bg-neon-cyan/10 hover:text-neon-cyan'
                         }`}
@@ -678,7 +679,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={handleConsultingClick}
-              className="block w-full text-left px-4 py-2 rounded-lg text-sm font-medium text-white hover:bg-neon-cyan/10 hover:text-neon-cyan"
+              className="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-white hover:bg-neon-cyan/10 hover:text-neon-cyan"
             >
               IT Consulting
             </button>
@@ -686,7 +687,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={handleContactClick}
-              className="block w-full bg-primary-500 text-gray-900 px-4 py-2.5 rounded-lg font-medium text-center hover:bg-primary-400 transition-all"
+              className="block w-full bg-primary-500 text-gray-900 px-4 py-3 rounded-lg font-semibold text-center hover:bg-primary-400 transition-all"
             >
               Contact Us
             </button>

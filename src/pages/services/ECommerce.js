@@ -1,9 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { ShoppingCart, Package, CreditCard, TrendingUp, Users, Smartphone } from 'lucide-react';
 import ServiceHero from '../../components/ServiceHero';
 import ServiceFeatures from '../../components/ServiceFeatures';
 import useScrollAnimation from '../../hooks/useScrollAnimation';
+import SEO from '../../components/SEO';
 
 const ECommerce = () => {
     useScrollAnimation();
@@ -68,20 +68,30 @@ const ECommerce = () => {
         }
     ];
 
+    const structuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        serviceType: 'E-Commerce Development',
+        provider: {
+            '@type': 'Organization',
+            name: 'Enginerds'
+        },
+        description: 'Professional e-commerce development with WooCommerce and Shopify. Build high-converting online stores with custom features and integrations.',
+        areaServed: 'IN'
+    };
+
     return (
         <div className="pt-20">
-            <Helmet>
-                <title>E-Commerce Development Services | WooCommerce & Shopify | Enginerds</title>
-                <meta
-                    name="description"
-                    content="Professional e-commerce development with WooCommerce and Shopify. Build high-converting online stores with custom features and integrations."
-                />
-                <meta
-                    name="keywords"
-                    content="ecommerce development, WooCommerce, Shopify, online store, shopping cart, payment gateway"
-                />
-                <link rel="canonical" href="https://www.enginerds.in/services/ecommerce" />
-            </Helmet>
+            <SEO
+                title="E-Commerce Development | WooCommerce & Shopify Experts | Enginerds"
+                description="Professional e-commerce development with WooCommerce and Shopify. Build high-converting online stores with custom features and integrations. 150+ stores launched."
+                keywords="ecommerce development, WooCommerce, Shopify, online store, shopping cart, payment gateway, React commerce"
+                canonical="/services/ecommerce"
+                ogTitle="E-Commerce Development | Build High-Converting Online Stores"
+                ogDescription="Create immersive WooCommerce and Shopify experiences with seamless checkout, robust integrations, and conversion-focused design."
+                ogImage="https://www.enginerds.in/og-ecommerce.jpg"
+                structuredData={structuredData}
+            />
 
             <ServiceHero
                 title="E-Commerce Development"

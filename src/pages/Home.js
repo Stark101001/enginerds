@@ -375,36 +375,36 @@ const Home = () => {
         <div className="absolute inset-0 backdrop-blur-[6px]"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-space-950/95 via-space-900/92 to-space-800/88 smoky-overlay"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr),minmax(0,0.9fr)] items-start">
-            <div className="max-w-2xl space-y-8 scroll-animate">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr),minmax(0,0.9fr)] items-start">
+            <div className="max-w-2xl mx-auto text-center lg:text-left space-y-8 scroll-animate">
               <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary-500/10 text-primary-500 border border-primary-500/30 shadow-glow-md">
                 <span className="w-2 h-2 bg-neon-cyan rounded-full mr-2 animate-pulse"></span>
                 Welcome to Enginerds
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white text-glow-white leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white text-glow-white leading-tight">
                 Transforming bold ideas into perpetually adaptive products
               </h1>
-              <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed">
                 We partner with founders and future-focused enterprises to design, engineer, and scale digital experiences across web, mobile, and AI-driven platforms. From discovery workshops to market launch, our squads ship measurable outcomes—fast.
               </p>
-              <div className="grid gap-4 sm:grid-cols-3 text-sm">
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-xl text-gray-200">
+              <div className="grid gap-4 sm:grid-cols-3 text-sm max-w-xl mx-auto lg:mx-0">
+                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-xl text-gray-200 text-center sm:text-left">
                   <span className="block text-2xl font-semibold text-white">120+</span>
                   <span className="text-xs uppercase tracking-[0.3em] text-primary-300">Projects shipped</span>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-xl text-gray-200">
+                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-xl text-gray-200 text-center sm:text-left">
                   <span className="block text-2xl font-semibold text-white">35+</span>
                   <span className="text-xs uppercase tracking-[0.3em] text-primary-300">Industries served</span>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-xl text-gray-200">
+                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-xl text-gray-200 text-center sm:text-left">
                   <span className="block text-2xl font-semibold text-white">5x</span>
                   <span className="text-xs uppercase tracking-[0.3em] text-primary-300">Average ROI</span>
                 </div>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 sm:justify-center lg:justify-start">
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-[#FE6301] to-[#FF9101] text-gray-900 font-semibold shadow-glow-md transition-all duration-200 hover:brightness-110"
+                  className="inline-flex items-center justify-center w-full sm:w-auto px-7 py-3 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#FE6301] to-[#FF9101] text-gray-900 font-semibold shadow-glow-md transition-all duration-200 hover:brightness-110"
                 >
                   Get Started
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -413,7 +413,7 @@ const Home = () => {
                   href="https://wa.me/918567927943"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-primary-400 text-primary-100 font-semibold transition-all duration-200 hover:bg-gradient-to-r hover:from-[#FE6301]/15 hover:to-[#FF9101]/15 hover:shadow-glow-md"
+                  className="inline-flex items-center justify-center w-full sm:w-auto px-7 py-3 sm:px-8 sm:py-4 rounded-full border-2 border-primary-400 text-primary-100 font-semibold transition-all duration-200 hover:bg-gradient-to-r hover:from-[#FE6301]/15 hover:to-[#FF9101]/15 hover:shadow-glow-md"
                 >
                   WhatsApp Us
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -421,7 +421,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="scroll-animate">
+            <div className="scroll-animate mt-8 lg:mt-0">
               <div className="glass-dark rounded-3xl shadow-glow-md border border-neon-cyan/20 p-6 sm:p-8">
                 <div className="space-y-2 mb-6">
                   <span className="inline-flex items-center text-sm font-semibold uppercase tracking-[0.3em] text-primary-500">
@@ -597,7 +597,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-5 scroll-animate">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 scroll-animate">
             {offerings.map((item) => {
               const Icon = item.icon;
               return (
@@ -656,7 +656,7 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-[1.05fr,1.05fr,0.9fr] items-stretch">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-[1.05fr,1.05fr,0.9fr] items-stretch">
             <div className="relative overflow-hidden rounded-3xl glass-dark border border-primary-500/15 shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_45px_rgba(254,99,1,0.32)] hover:border-primary-500/40">
               <div className="flex items-center justify-between px-6 pt-6">
                 <span className="inline-flex items-center rounded-full bg-gradient-to-r from-[#FE6301]/15 to-[#FF9101]/15 text-primary-100 font-medium text-xs px-3 py-1">
@@ -716,13 +716,13 @@ const Home = () => {
                   A snapshot of platforms, apps, and websites crafted for clients across industries.
                 </p>
               </div>
-              <a
-                href="/portfolio"
+              <Link
+                to="/portfolio"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary-500 text-gray-900 font-semibold shadow-glow-md transition-all duration-200 hover:bg-primary-400 whitespace-nowrap self-start sm:self-auto"
               >
                 View All
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">

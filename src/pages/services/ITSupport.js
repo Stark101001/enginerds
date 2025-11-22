@@ -1,9 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Headphones, Shield, Server, Clock, Wrench, CheckCircle } from 'lucide-react';
 import ServiceHero from '../../components/ServiceHero';
 import ServiceFeatures from '../../components/ServiceFeatures';
 import useScrollAnimation from '../../hooks/useScrollAnimation';
+import SEO from '../../components/SEO';
 
 const ITSupport = () => {
     useScrollAnimation();
@@ -81,20 +81,30 @@ const ITSupport = () => {
         }
     ];
 
+    const structuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        serviceType: 'IT Support & Managed Services',
+        provider: {
+            '@type': 'Organization',
+            name: 'Enginerds'
+        },
+        description: 'Professional IT support and managed services. 24/7 monitoring, security operations, and infrastructure management for your business.',
+        areaServed: 'IN'
+    };
+
     return (
         <div className="pt-20">
-            <Helmet>
-                <title>IT Support Services | 24/7 Managed IT Services | Enginerds</title>
-                <meta
-                    name="description"
-                    content="Professional IT support and managed services. 24/7 monitoring, security operations, and infrastructure management for your business."
-                />
-                <meta
-                    name="keywords"
-                    content="IT support, managed services, help desk, infrastructure management, security operations, 24/7 support"
-                />
-                <link rel="canonical" href="https://www.enginerds.in/services/it-support" />
-            </Helmet>
+            <SEO
+                title="IT Support Services | 24/7 Managed IT Services | Enginerds"
+                description="Professional IT support and managed services. 24/7 monitoring, security operations, and infrastructure management for your business. Guaranteed response times."
+                keywords="IT support, managed services, help desk, infrastructure management, security operations, 24/7 support, disaster recovery"
+                canonical="/services/it-support"
+                ogTitle="IT Support & Managed Services | Always-On Support"
+                ogDescription="Focus on your business while we handle your IT. 24/7 managed services with proactive monitoring and rapid incident response."
+                ogImage="https://www.enginerds.in/og-it-support.jpg"
+                structuredData={structuredData}
+            />
 
             <ServiceHero
                 title="IT Support & Managed Services"
@@ -155,8 +165,8 @@ const ITSupport = () => {
                                 <a
                                     href="#contact"
                                     className={`block w-full text-center px-6 py-3 rounded-xl font-semibold transition-colors ${plan.popular
-                                            ? 'bg-primary-500 text-white hover:bg-primary-600'
-                                            : 'bg-slate-100 text-gray-900 hover:bg-slate-200'
+                                        ? 'bg-primary-500 text-white hover:bg-primary-600'
+                                        : 'bg-slate-100 text-gray-900 hover:bg-slate-200'
                                         }`}
                                 >
                                     Get Started

@@ -1,10 +1,22 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import useScrollAnimation from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const Portfolio = () => {
     useScrollAnimation();
+    const navigate = useNavigate();
+
+    const scrollToContact = () => {
+        navigate('/');
+        setTimeout(() => {
+            const element = document.querySelector('#contact');
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 100);
+    };
 
     const portfolioGrid = [
         {
@@ -47,27 +59,34 @@ const Portfolio = () => {
         { label: 'Avg. ROI uplift', value: '5x' }
     ];
 
+    const structuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        itemListElement: portfolioGrid.map((project, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+                '@type': 'CreativeWork',
+                name: project.title,
+                description: project.description,
+                url: project.url,
+                category: project.category
+            }
+        }))
+    };
+
     return (
         <div className="pt-20">
-            <Helmet>
-                <title>Portfolio | Enginerds - Our Work & Case Studies</title>
-                <meta
-                    name="description"
-                    content="Explore our portfolio of successful projects including web development, e-commerce solutions, SaaS platforms, and AI automation implementations for clients across industries."
-                />
-                <meta
-                    name="keywords"
-                    content="portfolio, case studies, web development projects, e-commerce solutions, SaaS platforms, Enginerds work"
-                />
-                <link rel="canonical" href="https://www.enginerds.in/portfolio" />
-                <meta property="og:title" content="Portfolio | Enginerds - Our Work & Case Studies" />
-                <meta
-                    property="og:description"
-                    content="Discover platforms, apps, and websites we've crafted for clients across industries."
-                />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://www.enginerds.in/portfolio" />
-            </Helmet>
+            <SEO
+                title="Portfolio | Enginerds - Our Work & Case Studies"
+                description="Explore our portfolio of successful projects including web development, e-commerce solutions, SaaS platforms, and AI automation implementations for clients across industries. 120+ projects shipped."
+                keywords="portfolio, case studies, web development projects, e-commerce solutions, SaaS platforms, client work, project showcase"
+                canonical="/portfolio"
+                ogTitle="Portfolio | Digital Products Engineered for Impact"
+                ogDescription="Platforms, apps, and websites crafted for clients across manufacturing, e-commerce, education, and wellness industries."
+                ogImage="https://www.enginerds.in/og-portfolio.jpg"
+                structuredData={structuredData}
+            />
 
             {/* Hero Section */}
             <section className="relative overflow-hidden pt-32 pb-24 lg:pt-40 lg:pb-32">
@@ -215,13 +234,13 @@ const Portfolio = () => {
                             Let's collaborate to bring your vision to life with cutting-edge technology and innovative solutions.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a
-                                href="/#contact"
+                            <button
+                                onClick={scrollToContact}
                                 className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-primary-500 text-gray-900 font-semibold shadow-glow-md transition-all duration-200 hover:bg-primary-400"
                             >
                                 Get Started
                                 <ArrowRight className="ml-2 h-5 w-5" />
-                            </a>
+                            </button>
                             <a
                                 href="https://wa.me/918567927943"
                                 target="_blank"

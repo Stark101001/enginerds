@@ -1,7 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { CheckCircle, Activity, Shield, Stethoscope, Cpu, Users, ArrowRight } from 'lucide-react';
 import useScrollAnimation from '../../hooks/useScrollAnimation';
+import SEO from '../../components/SEO';
 
 const carePillars = [
   {
@@ -60,16 +60,29 @@ const careOpsStats = [
 const Healthcare = () => {
   useScrollAnimation();
 
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Healthcare Industry IT Solutions',
+    description: 'See how Enginerds modernizes healthcare with connected care platforms, analytics, automation, and secure integrations.',
+    author: {
+      '@type': 'Organization',
+      name: 'Enginerds'
+    }
+  };
+
   return (
     <div className="pt-20 bg-space-950 text-white smoky-overlay">
-      <Helmet>
-        <title>Healthcare Industry IT Solutions | Enginerds</title>
-        <meta
-          name="description"
-          content="See how Enginerds modernizes healthcare with connected care platforms, analytics, automation, and secure integrations."
-        />
-        <link rel="canonical" href="https://www.enginerds.in/industries/healthcare" />
-      </Helmet>
+      <SEO
+        title="Healthcare IT Solutions | Connected Care Platforms | Enginerds"
+        description="Modernize healthcare with connected care platforms, analytics, automation, and secure integrations. HIPAA-ready telemedicine, EHR integration, and AI decision support."
+        keywords="healthcare IT, telemedicine, EHR integration, HIPAA compliance, healthcare analytics, patient engagement, clinical systems"
+        canonical="/industries/healthcare"
+        ogTitle="Healthcare IT Solutions | Connected Care Platforms"
+        ogDescription="IT that keeps clinicians connected and patients confident. Interoperable systems, modern data stacks, and AI-enabled workflows."
+        ogImage="https://www.enginerds.in/og-healthcare.jpg"
+        structuredData={structuredData}
+      />
 
       <section className="relative overflow-hidden py-24">
         <img

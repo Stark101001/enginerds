@@ -1,9 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Cloud, Database, Users, BarChart3, Lock, Zap } from 'lucide-react';
 import ServiceHero from '../../components/ServiceHero';
 import ServiceFeatures from '../../components/ServiceFeatures';
 import useScrollAnimation from '../../hooks/useScrollAnimation';
+import SEO from '../../components/SEO';
 
 const SaasSolutions = () => {
     useScrollAnimation();
@@ -54,20 +54,30 @@ const SaasSolutions = () => {
         }
     ];
 
+    const structuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        serviceType: 'SaaS Solutions',
+        provider: {
+            '@type': 'Organization',
+            name: 'Enginerds'
+        },
+        description: 'Custom SaaS, ERP, and CRM development services. Cloud-native platforms that unify operations and drive business growth.',
+        areaServed: 'IN'
+    };
+
     return (
         <div className="pt-20">
-            <Helmet>
-                <title>SaaS Solutions | ERP & CRM Development | Enginerds</title>
-                <meta
-                    name="description"
-                    content="Custom SaaS, ERP, and CRM development services. Cloud-native platforms that unify operations and drive business growth."
-                />
-                <meta
-                    name="keywords"
-                    content="SaaS development, ERP software, CRM platform, cloud software, business management software"
-                />
-                <link rel="canonical" href="https://www.enginerds.in/services/saas-solutions" />
-            </Helmet>
+            <SEO
+                title="SaaS Solutions | ERP & CRM Development | Cloud Platforms | Enginerds"
+                description="Custom SaaS, ERP, and CRM development services. Cloud-native platforms that unify operations and drive business growth. Scalable, secure, multi-tenant architecture."
+                keywords="SaaS development, ERP software, CRM platform, cloud software, business management software, multi-tenant"
+                canonical="/services/saas-solutions"
+                ogTitle="SaaS Solutions | Build Cloud-Native Business Platforms"
+                ogDescription="Transform your business with comprehensive ERP and CRM solutions that unify operations, automate workflows, and provide actionable insights."
+                ogImage="https://www.enginerds.in/og-saas.jpg"
+                structuredData={structuredData}
+            />
 
             <ServiceHero
                 title="SaaS Solutions"

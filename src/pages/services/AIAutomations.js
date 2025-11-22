@@ -1,6 +1,6 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import useScrollAnimation from '../../hooks/useScrollAnimation';
+import SEO from '../../components/SEO';
 
 const automationFeatures = [
     {
@@ -127,20 +127,30 @@ const SectionDivider = () => (
 const AIAutomations = () => {
     useScrollAnimation();
 
+    const structuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        serviceType: 'AI Automation Services',
+        provider: {
+            '@type': 'Organization',
+            name: 'Enginerds'
+        },
+        description: 'AI automation solutions with intelligent agents and chatbots. Streamline operations and enhance customer experience with AI technology.',
+        areaServed: 'IN'
+    };
+
     return (
         <div className="pt-20 bg-space-950 text-white smoky-overlay">
-            <Helmet>
-                <title>AI Automation Services | AI Agents & Bots | Enginerds</title>
-                <meta
-                    name="description"
-                    content="AI automation solutions with intelligent agents and chatbots. Streamline operations and enhance customer experience with AI technology."
-                />
-                <meta
-                    name="keywords"
-                    content="AI automation, chatbots, AI agents, machine learning, process automation, NLP"
-                />
-                <link rel="canonical" href="https://www.enginerds.in/services/ai-automations" />
-            </Helmet>
+            <SEO
+                title="AI Automation Services | AI Agents & Chatbots | Enginerds"
+                description="AI automation solutions with intelligent agents and chatbots. Streamline operations and enhance customer experience with AI technology. 180+ workflows automated."
+                keywords="AI automation, chatbots, AI agents, machine learning, process automation, NLP, generative AI"
+                canonical="/services/ai-automations"
+                ogTitle="AI Automation | Intelligent Agents & Workflow Automation"
+                ogDescription="Design AI systems that connect your tools, orchestrate workflows, and empower every team with real-time intelligence."
+                ogImage="https://www.enginerds.in/og-ai-automation.jpg"
+                structuredData={structuredData}
+            />
 
             <section className="relative overflow-hidden py-24">
                 <div className="absolute inset-0">

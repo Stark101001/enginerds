@@ -75,24 +75,24 @@ const ServiceContact = ({ serviceName }) => {
     };
 
     return (
-        <section id="contact" className="py-20 bg-space-900 cyber-grid-bg">
+        <section id="contact" className="py-16 sm:py-20 bg-space-900 cyber-grid-bg">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid gap-12 lg:grid-cols-2">
+                <div className="grid gap-12 lg:grid-cols-2 items-start">
                     {/* Contact Information */}
-                    <div className="scroll-animate">
+                    <div className="scroll-animate text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
                         <p className="text-xs font-semibold tracking-[0.35em] uppercase text-primary-500 mb-4">
                             Get in Touch
                         </p>
                         <h2 className="text-4xl sm:text-5xl font-bold text-white text-glow-white mb-6">
                             Let's discuss your {serviceName} needs
                         </h2>
-                        <p className="text-lg text-gray-300 mb-8">
+                        <p className="text-base sm:text-lg text-gray-300 mb-8">
                             Ready to transform your business? Contact us today and let's create something amazing together.
                         </p>
 
                         <div className="space-y-6">
-                            <div className="flex items-start space-x-4">
-                                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-500/10 text-primary-500">
+                            <div className="flex items-center lg:items-start space-x-4">
+                                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-500/10 text-primary-500 shrink-0">
                                     <Mail className="h-6 w-6" />
                                 </span>
                                 <div>
@@ -103,8 +103,8 @@ const ServiceContact = ({ serviceName }) => {
                                 </div>
                             </div>
 
-                            <div className="flex items-start space-x-4">
-                                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-500/10 text-primary-500">
+                            <div className="flex items-center lg:items-start space-x-4">
+                                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-500/10 text-primary-500 shrink-0">
                                     <Phone className="h-6 w-6" />
                                 </span>
                                 <div>
@@ -115,8 +115,8 @@ const ServiceContact = ({ serviceName }) => {
                                 </div>
                             </div>
 
-                            <div className="flex items-start space-x-4">
-                                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-500/10 text-primary-500">
+                            <div className="flex items-center lg:items-start space-x-4">
+                                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-500/10 text-primary-500 shrink-0">
                                     <MapPin className="h-6 w-6" />
                                 </span>
                                 <div>
@@ -129,8 +129,8 @@ const ServiceContact = ({ serviceName }) => {
 
                     {/* Contact Form */}
                     <div className="scroll-animate">
-                        <div className="glass-dark rounded-3xl shadow-glow-md border border-primary-500/20 p-8">
-                            <h3 className="text-2xl font-semibold text-white mb-6">Send us a message</h3>
+                        <div className="glass-dark rounded-3xl shadow-glow-md border border-primary-500/20 p-6 sm:p-8 max-w-xl mx-auto lg:mx-0">
+                            <h3 className="text-2xl font-semibold text-white mb-6 text-center lg:text-left">Send us a message</h3>
                             <form className="space-y-4" onSubmit={handleContactSubmit} noValidate>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-300 mb-1" htmlFor="contact-name">

@@ -5,23 +5,23 @@ const ServiceFeatures = ({ title, subtitle, features }) => {
     useScrollAnimation();
 
     return (
-        <section className="relative py-20 bg-[#030812] overflow-hidden">
+        <section className="relative py-16 sm:py-20 bg-[#030812] overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-[#050c1c] via-[#030812] to-[#010409] opacity-90"></div>
             <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_top,_rgba(255,145,1,0.22),_transparent_55%),_radial-gradient(circle_at_bottom,_rgba(79,195,247,0.18),_transparent_60%)] blur-[80px]"></div>
             <div className="absolute inset-0 opacity-15 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[140px_140px]"></div>
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12 scroll-animate">
+                <div className="text-center mb-10 sm:mb-12 scroll-animate">
                     {subtitle && (
                         <p className="text-xs font-semibold tracking-[0.35em] uppercase text-primary-500 mb-4">
                             {subtitle}
                         </p>
                     )}
-                    <h2 className="text-4xl sm:text-5xl font-bold text-white text-glow-white">
+                    <h2 className="text-3xl sm:text-5xl font-bold text-white text-glow-white">
                         {title}
                     </h2>
                 </div>
 
-                <div className="feature-3d-grid grid gap-8 md:grid-cols-2 lg:grid-cols-3 scroll-animate">
+                <div className="feature-3d-grid grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3 scroll-animate">
                     {features.map((feature, index) => {
                         const Icon = feature.icon;
                         return (

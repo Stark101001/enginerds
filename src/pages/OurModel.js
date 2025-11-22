@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import {
   Brain,
@@ -11,6 +10,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const modelCards = [
   {
@@ -56,13 +56,15 @@ const OurModel = () => {
 
   return (
     <div className="pt-28 pb-24 bg-space-950 min-h-screen text-white smoky-overlay">
-      <Helmet>
-        <title>Our Model | Enginerds</title>
-        <meta
-          name="description"
-          content="Discover the Enginerds delivery model that blends strategy, design, development, and growth to launch high-impact digital solutions."
-        />
-      </Helmet>
+      <SEO
+        title="Our Model | Enginerds Delivery Framework"
+        description="Discover the Enginerds delivery model that blends strategy, design, development, and growth to launch high-impact digital solutions. From brainstorming to digital marketing."
+        keywords="delivery model, software development process, agile methodology, product development, design thinking, digital strategy"
+        canonical="/our-model"
+        ogTitle="Our Model | How Enginerds Delivers Success"
+        ogDescription="End-to-end approach integrating design thinking, engineering excellence, and marketing intelligence to help you reach your goals faster."
+        ogImage="https://www.enginerds.in/og-model.jpg"
+      />
 
       <section className="max-w-6xl mx-auto px-4 lg:px-0 grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-start">
         <div className="scroll-animate">
